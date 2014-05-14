@@ -1,3 +1,3 @@
 drupal-threesixty-slider
 ========================
-this is the test
+Originaly writen by <a href="https://github.com/creativeaura">Gaurav Jassal</a>
