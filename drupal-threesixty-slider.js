@@ -157,17 +157,14 @@
       var li, imageName, image, host;
       li = document.createElement('li');
 	  imageName = src[AppCongif.loadedImages] + (($.browser.msie) ? '?' + new Date().getTime() : '');
-      //imageName = AppCongif.domain + AppCongif.imagePath + AppCongif.filePrefix + (AppCongif.loadedImages + 1) + AppCongif.ext + (($.browser.msie) ? '?' + new Date().getTime() : '');
       image = $('<img>').attr('src', imageName).addClass('previous-image').css({height: AppCongif.height, width: AppCongif.width}).appendTo(li);
 	  if(frames.length >=  AppCongif.totalFrames)
 	  {
       frames2.push(image);
-	  ///\\\alert(frames2);
 	  }
 	  else
 	  {
 		  frames.push(image);
-		  //alert(frames[0].attr('src'));
 	  }
 	  
       base.$el.find(AppCongif.imgList).append(li);
