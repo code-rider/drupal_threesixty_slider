@@ -1,11 +1,5 @@
-// JavaScript Document
-
-
-/*global $, window, CanvasLoader, jQuery, alert, requestAnimationFrame, cancelAnimationFrame */
-/*jslint browser:true, devel:true */
-
 /*!
- * 360 degree Image Slider v1.0.0
+ * 360 degree Image Slider v1.0
  * http://gaurav.jassal.me/#360
  *
  * Copyright 2012, gaurav@jassal.me
