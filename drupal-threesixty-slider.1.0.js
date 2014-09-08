@@ -354,7 +354,7 @@
           AppCongif.dragging = false;
         }
         if (event.type === 'click' && !$.browser.msie) {
-          base.$el.css("cursor", "url(sites/all/modules/xululabs_jquery_panorama/images/hand_closed.png), auto");
+          base.$el.css("cursor", "url(/sites/all/modules/xululabs_jquery_panorama/images/hand_closed.png), auto");
         }
       });
 
