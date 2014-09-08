@@ -354,7 +354,7 @@
           AppCongif.dragging = false;
         }
         if (event.type === 'click' && !$.browser.msie) {
-          base.$el.css("cursor", "url("+AppCongif.domain+"sites/all/modules/xululabs_jquery_panorama/images/hand_closed.png), auto");
+          base.$el.css("cursor", "url(sites/all/modules/xululabs_jquery_panorama/images/hand_closed.png), auto");
         }
       });
 
@@ -368,11 +368,11 @@
         if (AppCongif.dragging) {
           event.preventDefault();
           if(!$.browser.msie) {
-            base.$el.css("cursor", "url(http://localhost/Omega/sites/all/modules/xululabs_field_slide_show_360/images/hand_closed.png), auto");
+            base.$el.css("cursor", "url(/sites/all/modules/xululabs_field_slide_show_360/images/hand_closed.png), auto");
           }
         } else {
           if(!$.browser.msie) {
-            base.$el.css("cursor", "url(http://localhost/Omega/sites/all/modules/xululabs_field_slide_show_360/images/hand_open.png), auto");
+            base.$el.css("cursor", "url(/sites/all/modules/xululabs_field_slide_show_360/images/hand_open.png), auto");
           }
         }
         base.trackPointer(event);
@@ -563,7 +563,7 @@
      * Domain from where assets needs to be loaded. Use this propery is you want to load all assets from
      * single domain.
      */
-    domain: 'http://localhost/www.omega.com/',
+    domain: '',
     /**
      * @cfg {Boolean} parallel
      * Set to true if you want to load assets from parallel domain. Default false
