@@ -354,7 +354,7 @@
           AppCongif.dragging = false;
         }
         if (event.type === 'click' && !$.browser.msie) {
-          base.$el.css("cursor", "url(/sites/all/modules/xululabs_jquery_panorama/images/hand_closed.png), auto");
+          base.$el.css("cursor", "url(/sites/all/modules/field_slide_show_j360/images/hand_closed.png), auto");
         }
       });
 
@@ -368,11 +368,11 @@
         if (AppCongif.dragging) {
           event.preventDefault();
           if(!$.browser.msie) {
-            base.$el.css("cursor", "url(/sites/all/modules/xululabs_field_slide_show_360/images/hand_closed.png), auto");
+            base.$el.css("cursor", "url(/sites/all/modules/field_slide_show_j360/images/hand_closed.png), auto");
           }
         } else {
           if(!$.browser.msie) {
-            base.$el.css("cursor", "url(/sites/all/modules/xululabs_field_slide_show_360/images/hand_open.png), auto");
+            base.$el.css("cursor", "url(/sites/all/modules/field_slide_show_j360/images/hand_open.png), auto");
           }
         }
         base.trackPointer(event);
