@@ -109,11 +109,11 @@
 		  //get all img src path from li list
 		  var src = [];
 		for (var i = 0; i < AppCongif.totalFrames; i++) {
-		src.push($("ol."+AppCongif.imgList+" li:eq("+i+") img").attr('src'));
+		src.push($(AppCongif.imgList+" li:eq("+i+") img").attr('src'));
 		}
 		
 		//remove all list we need to rebuild the li list 
-		$('ol.'+AppCongif.imgList+' li').remove();
+		$(AppCongif.imgList+' li').remove();
         base.loadImages(src);//pass all images path to next function 
       }
       base.initProgress();
@@ -150,7 +150,7 @@
       base.loadImages = function(src) {
       var li, imageName, image, host;
       li = document.createElement('li');
-	  imageName = src[AppCongif.loadedImages] + (($.browser.msie) ? '?' + new Date().getTime() : '');
+	  imageName = src[AppCongif.loadedImages] + ((base.browser.isIE()) ? '?' + new Date().getTime() : '');
       image = $('<img>').attr('src', imageName).addClass('previous-image').css({height: AppCongif.height, width: AppCongif.width}).appendTo(li);
 	  if(frames.length >=  AppCongif.totalFrames)
 	  {
@@ -353,7 +353,7 @@
         } else if (event.type === 'touchend') {
           AppCongif.dragging = false;
         }
-        if (event.type === 'click' && !$.browser.msie) {
+        if (event.type === 'click' && !base.browser.isIE) {
           base.$el.css("cursor", "url(/sites/all/modules/field_slide_show_j360/images/hand_closed.png), auto");
         }
       });
@@ -367,11 +367,11 @@
       $(document).bind('mousemove', function (event) {
         if (AppCongif.dragging) {
           event.preventDefault();
-          if(!$.browser.msie) {
+          if(!base.browser.isIE) {
             base.$el.css("cursor", "url(/sites/all/modules/field_slide_show_j360/images/hand_closed.png), auto");
           }
         } else {
-          if(!$.browser.msie) {
+          if(!base.browser.isIE) {
             base.$el.css("cursor", "url(/sites/all/modules/field_slide_show_j360/images/hand_open.png), auto");
           }
         }
@@ -475,6 +475,29 @@
       }
       return c;
     };
+		
+    base.browser = {};
+
+    /**
+     * Function to detect if the brower is IE
+     * @return {boolean}
+     *
+     * http://msdn.microsoft.com/en-gb/library/ms537509(v=vs.85).aspx
+     */
+    base.browser.isIE = function () {
+      var rv = -1;
+      if (navigator.appName === 'Microsoft Internet Explorer')
+      {
+        var ua = navigator.userAgent;
+        var re  = new RegExp('MSIE ([0-9]{1,}[\\.0-9]{0,})');
+        if (re.exec(ua) !== null){
+          rv = parseFloat( RegExp.$1 );
+        }
+      }
+
+      return rv !== -1;
+    };
+		
     base.init();
   };
 
