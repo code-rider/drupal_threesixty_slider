@@ -108,12 +108,17 @@
       if (!AppCongif.parallel) {
 		  //get all img src path from li list
 		  var src = [];
-		for (var i = 0; i < AppCongif.totalFrames; i++) {
-		src.push($(AppCongif.imgList+" li:eq("+i+") img").attr('src'));
-		}
-		
+		//for (var i = 0; i < AppCongif.totalFrames; i++) {
+      base.$el.find(AppCongif.imgList).children("li").each(function( i ) {
+        src.push( $( this ).children( "img" ).attr( 'src' ) );
+      });
+      //alert(src.length);
+    
+		//src.push($(AppCongif.imgList+" li:eq("+i+") img").attr('src'));
+		//}
+		//alert(src[0]);
 		//remove all list we need to rebuild the li list 
-		$(AppCongif.imgList+' li').remove();
+		base.$el.find(AppCongif.imgList).children('li').remove();
         base.loadImages(src);//pass all images path to next function 
       }
       base.initProgress();
@@ -161,7 +166,7 @@
 		  frames.push(image);
 	  }
 	  
-      base.$el.find(AppCongif.imgList).append(li);
+    base.$el.find(AppCongif.imgList).append(li);
       $(image).load(function () {
         base.imageLoaded(src);
       });
@@ -174,10 +179,10 @@
      */
     base.imageLoaded = function (src) {
       AppCongif.loadedImages += 1;
-      $(AppCongif.progress + " span").text(Math.floor(AppCongif.loadedImages / AppCongif.totalFrames * 100) + '%');
+      base.$el.find(AppCongif.progress).children("span").text(Math.floor(AppCongif.loadedImages / AppCongif.totalFrames * 100) + '%');
       if (AppCongif.loadedImages >= AppCongif.totalFrames) {
         frames[0].removeClass("previous-image").addClass("current-image");
-        $(AppCongif.progress).fadeOut("slow", function () {
+        base.$el.find(AppCongif.progress).fadeOut("slow", function () {
           $(this).hide();
           base.showImages();
           base.showNavigation();
@@ -419,6 +424,7 @@
      */
 
     base.refresh = function () {
+      
       if (AppCongif.ticker === 0) {
         AppCongif.ticker = setInterval(base.render, Math.round(1000 / AppCongif.framerate));
       }
