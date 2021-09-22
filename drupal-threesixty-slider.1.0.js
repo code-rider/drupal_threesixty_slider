@@ -167,7 +167,8 @@
 	  }
 	  
     base.$el.find(AppCongif.imgList).append(li);
-      $(image).load(function () {
+      //$(image).load(function () {
+      $(image).on('load',function () {
         base.imageLoaded(src);
       });
     };
